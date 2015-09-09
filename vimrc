@@ -3,7 +3,7 @@ syntax enable
 filetype off
 set encoding=utf-8
 set showcmd                     " display incomplete commands
-filetype plugin indent on       " load file type plugins + indentation
+
 
 "" Whitespace
 set nowrap                      " don't wrap lines
@@ -23,9 +23,9 @@ call vundle#rc()
 
 "" plugins
 Plugin 'gmarik/vundle' " vundle plugin
-Plugin 'klen/python-mode'
-
-filtetype plugin indent on
+Plugin 'klen/python-mode'  " python mode
+Plugin 'lsdr/monokai'   " monokai colorscheme
+filetype plugin indent on
 
 " Python-mode
 " Activate rope
@@ -68,17 +68,11 @@ let g:pymode_syntax_space_errors = g:pymode_syntax_all
 " Don't autofold code
 let g:pymode_folding = 0
 
-augroup vimrc_autocmds
-    autocmd!
-    " highlight characters past column 80
-    autocmd FileType python highlight Excess ctermbg=DarkGrey guibg=Red
-    autocmd FileType python match Excess /\%80v.*/
-    autocmd FileType python set nowrap
-    augroup END
+
 
 """ view
-set guifont=DejaVu\ Sans\ Mono\ 13
-color elflord
+set guifont=DejaVu\ Sans\ Mono\ 11
+color monokai
 set number
 set showmatch
 syntax enable
