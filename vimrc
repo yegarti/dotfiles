@@ -18,13 +18,15 @@ set ignorecase                  " searches are case insensitive...
 set smartcase                   " ... unless they contain at least one capital letter
 
 """ vundle 
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 "" plugins
 Plugin 'gmarik/vundle' " vundle plugin
 Plugin 'klen/python-mode'  " python mode
 Plugin 'lsdr/monokai'   " monokai colorscheme
+
+call vundle#end()
 filetype plugin indent on
 
 " Python-mode
