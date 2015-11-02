@@ -25,6 +25,8 @@ call vundle#begin()
 Plugin 'gmarik/vundle' " vundle plugin
 Plugin 'klen/python-mode'  " python mode
 Plugin 'lsdr/monokai'   " monokai colorscheme
+Plugin 'scrooloose/syntastic' 
+Plugin 'tpope/vim-sensible'
 
 call vundle#end()
 filetype plugin indent on
@@ -70,6 +72,14 @@ let g:pymode_syntax_space_errors = g:pymode_syntax_all
 " Don't autofold code
 let g:pymode_folding = 0
 
+"" OCaml stuff
+let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+execute "set rtp+=" . g:opamshare . "/merlin/vim"
+
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 
 """ view
