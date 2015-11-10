@@ -24,7 +24,7 @@ call vundle#begin()
 "" plugins
 Plugin 'gmarik/vundle' " vundle plugin
 Plugin 'klen/python-mode'  " python mode
-Plugin 'lsdr/monokai'   " monokai colorscheme
+Plugin 'sickill/vim-monokai'   " monokai colorscheme
 Plugin 'scrooloose/syntastic' 
 Plugin 'tpope/vim-sensible'
 
