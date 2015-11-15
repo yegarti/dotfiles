@@ -25,6 +25,8 @@ call vundle#begin()
 Plugin 'gmarik/vundle' " vundle plugin
 Plugin 'klen/python-mode'  " python mode
 Plugin 'sickill/vim-monokai'   " monokai colorscheme
+Plugin 'nanotech/jellybeans.vim' " jellybeans colorscheme
+Plugin 'vim-scripts/BufOnly.vim' " close all buffers but this
 Plugin 'scrooloose/syntastic' 
 Plugin 'tpope/vim-sensible'
 
@@ -84,7 +86,7 @@ nnoremap <C-H> <C-W><C-H>
 
 """ view
 set guifont=DejaVu\ Sans\ Mono\ 11
-color monokai
+color jellybeans
 set number
 set showmatch
 syntax enable
