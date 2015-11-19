@@ -27,11 +27,23 @@ Plugin 'klen/python-mode'  " python mode
 Plugin 'sickill/vim-monokai'   " monokai colorscheme
 Plugin 'nanotech/jellybeans.vim' " jellybeans colorscheme
 Plugin 'vim-scripts/BufOnly.vim' " close all buffers but this
-Plugin 'scrooloose/syntastic' 
+Plugin 'scrooloose/syntastic' " syntax checking
 Plugin 'tpope/vim-sensible'
 
 call vundle#end()
 filetype plugin indent on
+
+" syntastic settings
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1   " automaticly open/close error list
+let g:syntastic_check_on_open = 1   " check when opening buffers
+let g:syntastic_check_on_wq = 0   " dont check when closing buffers
+
 
 " Python-mode
 " Activate rope
