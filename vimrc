@@ -27,6 +27,7 @@ Plugin 'klen/python-mode'  " python mode
 Plugin 'sickill/vim-monokai'   " monokai colorscheme
 Plugin 'nanotech/jellybeans.vim' " jellybeans colorscheme
 Plugin 'vim-scripts/BufOnly.vim' " close all buffers but this
+Plugin 'ervandew/supertab' " auto complete
 Plugin 'scrooloose/syntastic' " syntax checking
 Plugin 'tpope/vim-sensible'
 
