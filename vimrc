@@ -30,6 +30,7 @@ Plugin 'vim-scripts/BufOnly.vim' " close all buffers but this
 Plugin 'ervandew/supertab' " auto complete
 Plugin 'scrooloose/syntastic' " syntax checking
 Plugin 'tpope/vim-sensible'
+Plugin 'msnaders/snipmate.vim' "snippets"
 
 call vundle#end()
 filetype plugin indent on
