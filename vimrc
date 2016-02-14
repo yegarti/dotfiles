@@ -17,12 +17,13 @@ set incsearch                   " incremental searching
 set ignorecase                  " searches are case insensitive...
 set smartcase                   " ... unless they contain at least one capital letter
 
+"" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 """ vundle 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 "" plugins
-Plugin 'gmarik/vundle' " vundle plugin
+Plugin 'VundleVim/Vundle.vim' vundle plugin
 Plugin 'klen/python-mode'  " python mode
 Plugin 'sickill/vim-monokai'   " monokai colorscheme
 Plugin 'nanotech/jellybeans.vim' " jellybeans colorscheme
@@ -30,7 +31,10 @@ Plugin 'vim-scripts/BufOnly.vim' " close all buffers but this
 Plugin 'ervandew/supertab' " auto complete
 Plugin 'scrooloose/syntastic' " syntax checking
 Plugin 'tpope/vim-sensible'
-Plugin 'msnaders/snipmate.vim' "snippets"
+Plugin 'MarcWeber/vim-addon-mw-utils' "snippets stuff
+Plugin 'tomtom/tlib_vim' " samek
+Plugin 'garbas/vim-snipmate' " same
+Plugin 'honza/vim-snippets' " same
 
 call vundle#end()
 filetype plugin indent on
