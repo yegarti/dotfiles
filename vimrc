@@ -23,7 +23,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 "" plugins
-Plugin 'VundleVim/Vundle.vim' vundle plugin
+Plugin 'VundleVim/Vundle.vim' " vundle plugin
 Plugin 'klen/python-mode'  " python mode
 Plugin 'sickill/vim-monokai'   " monokai colorscheme
 Plugin 'nanotech/jellybeans.vim' " jellybeans colorscheme
