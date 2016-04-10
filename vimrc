@@ -35,6 +35,7 @@ Plugin 'MarcWeber/vim-addon-mw-utils' "snippets stuff
 Plugin 'tomtom/tlib_vim' " samek
 Plugin 'garbas/vim-snipmate' " same
 Plugin 'honza/vim-snippets' " same
+Plugin 'scrooloose/nerdtree' " NERDTree
 
 call vundle#end()
 filetype plugin indent on
