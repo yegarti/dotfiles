@@ -37,7 +37,7 @@ Plugin 'tomtom/tlib_vim' " samek
 Plugin 'garbas/vim-snipmate' " same
 Plugin 'honza/vim-snippets' " same
 Plugin 'scrooloose/nerdtree' " NERDTree
-
+Plugin 'tpope/vim-commentary' "" easy comment
 call vundle#end()
 filetype plugin indent on
 
