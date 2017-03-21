@@ -33,16 +33,52 @@ Plugin 'altercation/vim-colors-solarized' " solarized colorscheme
 
 Plugin 'vim-scripts/BufOnly.vim' " close all buffers but this
 Plugin 'ervandew/supertab' " auto complete
-Plugin 'scrooloose/syntastic' " syntax checking
+" Plugin 'scrooloose/syntastic' " syntax checking
 Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-surround' 
 Plugin 'MarcWeber/vim-addon-mw-utils' "snippets stuff
 Plugin 'tomtom/tlib_vim' " samek
 Plugin 'garbas/vim-snipmate' " same
 Plugin 'honza/vim-snippets' " same
 Plugin 'scrooloose/nerdtree' " NERDTree
-Plugin 'tpope/vim-commentary' "" easy comment
+autocmd vimenter * NERDTree
+Plugin 'tpope/vim-commentary' " easy comment
+" Plugin 'Valloric/YouCompleteMe' " ycm
+Plugin 'vim-airline/vim-airline' " status bar
+Plugin 'vim-airline/vim-airline-themes'
+
+" first 2 not really needed with YCM , 3rd is just not used
+set runtimepath-=~/.vim/bundle/supertab
+set runtimepath-=~/.vim/bundle/syntastic
+set runtimepath-=~/.vim/bundle/BufOnly.vim
+" YCM annoys me
+set runtimepath-=~/.vim/bundle/YouCompleteMe
+
 call vundle#end()
 filetype plugin indent on
+
+""""" mine! """"""
+let mapleader=','
+nnoremap <Leader>w :w<CR>
+" change buffers the right way
+nnoremap <Leader>b :buffers<CR>:buffer<space>
+inoremap <Leader>p ()<Esc>i
+nnoremap gw <C-W>
+nnoremap : ;
+nnoremap ; :
+nnoremap <F9> :source $MYVIMRC<CR>
+
+
+" hide menu and toolbar
+set guioptions-=m
+set guioptions-=T
+
+" YCM settings - not working but meh
+let g:ycm_filetype_blacklist = { 'python' : 1 }
+let g:ycm_filetype_specific_completion_to_disable = { 'python': 1}
+
+" snimpate interfering with YCM,
+imap <C-\> <Plug>snipMateNextOrTrigger 
 
 " syntastic settings
 
@@ -84,9 +120,9 @@ let g:pymode_lint_write = 1
 " Support virtualenv
 let g:pymode_virtualenv = 1
 
-" Enable breakpoints plugin
-let g:pymode_breakpoint = 1
-let g:pymode_breakpoint_bind = '<leader>b'
+" Disable breakpoints plugin
+let g:pymode_breakpoint = 0
+let g:pymode_breakpoint_bind = '<leader>lala'
 
 " syntax highlighting
 let g:pymode_syntax = 1
@@ -97,6 +133,8 @@ let g:pymode_syntax_space_errors = g:pymode_syntax_all
 " Don't autofold code
 let g:pymode_folding = 0
 
+""" NERDTree stuff
+let NERDTreeIgnore = ['\.o$']
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
