@@ -35,7 +35,8 @@ Plugin 'altercation/vim-colors-solarized' " solarized colorscheme
 " Plugin 'vim-scripts/BufOnly.vim' " close all buffers but this
 Plugin 'ervandew/supertab' " auto complete
 Plugin 'tpope/vim-sensible'
-Plugin 'tpope/vim-surround' 
+Plugin 'tpope/vim-surround' " easily surround text
+Plugin 'tpope/vim-repeat' " repeats last command, including plugins mappings
 Plugin 'MarcWeber/vim-addon-mw-utils' "snippets stuff
 Plugin 'tomtom/tlib_vim' " samek
 Plugin 'garbas/vim-snipmate' " same
