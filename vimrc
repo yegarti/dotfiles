@@ -10,7 +10,7 @@ set listchars=tab:•\ ,trail:•,extends:»,precedes:« " Unprintable chars map
 
 "" Whitespace
 set nowrap                      " don't wrap lines
-set tabstop=4 shiftwidth=4      " a tab is two spaces (or set this to 4)
+set tabstop=4 shiftwidth=4      " a tab is 4 spaces
 " set expandtab                   " use spaces, not tabs (optional)
 set noexpandtab                   " use tabs, not spaces
 set backspace=indent,eol,start  " backspace through everything in insert mode
@@ -48,6 +48,8 @@ Plugin 'vim-airline/vim-airline' " status bar
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'jiangmiao/auto-pairs' " complete pairs
 Plugin 'ctrlpvim/ctrlp.vim' " fuzzy file search
+Plugin 'davidhalter/jedi-vim' " python auto complete
+Plugin 'alepez/vim-gtest' " google test plugin
 set wildignore+=*/tmp/*,*.so,*.o,*.swp,*.zip,*.js,*.java,*.css,*/Dashboard_Tool/*,*.html
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
@@ -61,10 +63,20 @@ let mapleader=','
 nnoremap <Leader>w :w<CR>
 " change buffers the right way
 nnoremap <Leader>b :buffers<CR>:buffer<space>
+nnoremap <Leader>b :CtrlPBuffer<CR>
 nnoremap gw <C-W>
 nnoremap : ;
 nnoremap ; :
+nnoremap <BS> <C-^>
 nnoremap <F9> :source $MYVIMRC<CR>
+nnoremap <ENTER> o<ESC>k
+nnoremap <Leader>d :GTestToggleEnabled<CR>
+let g:gtest#gtest_command = "./runtest"
+nnoremap <Leader>r :make CFG=optimize<CR> :GTestRunUnderCursor<CR>
+let g:ale_cpp_gcc_options = "@/home/dev/dotfiles/ale_gcc.conf"
+
+" open definition in a new horiziontal split and go back to oldwindow
+nnoremap <C-]><C-]> <C-W><C-]>zt15<C-W>-<C-W><C-W>
 
 
 " hide menu and toolbar
@@ -92,11 +104,37 @@ nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
 
 
+" stackoverflow.com/questions/5700389/using-vims-persistent-undo
+" Put plugins and dictionaries in this dir (also on Windows)
+let vimDir = '$HOME/.vim'
+let &runtimepath.=','.vimDir
+
+" Keep undo history across sessions by storing it in a file
+if has('persistent_undo')
+	let myUndoDir = expand(vimDir . '/undodir')
+	" Create dirs
+	call system('mkdir ' . vimDir)
+	call system('mkdir ' . myUndoDir)
+	let &undodir = myUndoDir
+	set undofile
+endif
+
+
+
 """ view
 set guifont=DejaVu\ Sans\ Mono\ 11
 if has("gui_running")
-	color solarized
-set bg=light
+	color jellybeans
+	nnoremap <C-+> :silent! let &guifont = substitute(
+	 \ &guifont,
+	 \ ':h\zs\d\+',
+	 \ '\=eval(submatch(0)+1)',
+	 \ '')<CR>
+	nnoremap <C--> :silent! let &guifont = substitute(
+	 \ &guifont,
+	 \ ':h\zs\d\+',
+	 \ '\=eval(submatch(0)-1)',
+	 \ '')<CR>
 else
 	color jellybeans
 endif
