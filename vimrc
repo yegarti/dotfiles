@@ -30,6 +30,7 @@ set showmatch
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'w0rp/ale'
+let g:ale_type_map = {'flake8': {'ES': 'WS'}}
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
@@ -37,6 +38,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'ervandew/supertab'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -44,9 +47,15 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
-Plug 'davidhalter/jedi'
-Plug 'zchee/deoplete-jedi'
 let g:deoplete#enable_at_startup = 1
+Plug 'zchee/deoplete-jedi'
+let g:deoplete#sources#jedi#show_docstring = 1
+Plug 'davidhalter/jedi-vim'
+let g:jedi#completions_enabled = 0
+autocmd BufWinEnter '__doc__' setlocal bufhidden=delete
+" change this to neovim venv where 'neovim' pip package installed
+let g:python3_host_prog='/home/ygarti/.local/share/virtualenvs/nvim-nqqzs7yT/bin/python3'
+let g:python_host_prog='/home/ygarti/.local/share/virtualenvs/neovim2--DUTlD8e/bin/python'
 " color themes
 Plug 'morhetz/gruvbox'
 Plug 'dracula/vim'
@@ -69,6 +78,10 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" graphics
+colorscheme gruvbox
+set background=dark
 
 " Keep undo history across sessions by storing it in a file
 if !has('nvim') && has('persistent_undo')
