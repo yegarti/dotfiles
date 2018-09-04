@@ -40,6 +40,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'ervandew/supertab'
+let g:SuperTabCrMapping = 1
+let g:SuperTabDefaultCompletionType = "<c-n>"
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -93,4 +95,5 @@ if !has('nvim') && has('persistent_undo')
 	let &undodir = myUndoDir
 endif
 set undofile
-
+colorscheme gruvbox
+set background=dark
