@@ -1,0 +1,57 @@
+#!/usr/bin/env python3
+
+import sys
+import argparse
+import shlex
+from subprocess import check_call
+
+VIDEO_OUTPUTS = {'primary': 'DVI-D-0', 'secondary': 'DVI-D-1', 'tv': 'HDMI-0'}
+
+
+class MonitorAction(argparse.Action):
+    def __call__(self, parser, namespace, values, option_string=None):
+        if namespace.mode == 'extend' and len(values) < 2:
+            parser.error("'extend' mode require 2 monitors")
+        elif namespace.mode == 'single' and len(values) > 1:
+            parser.error("'single' mode require a single monitor")
+        else:
+            namespace.monitor = values
+
+
+def parse_args(args):
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--mode', '-m', required=True, choices=('single', 'extend'))
+    parser.add_argument('--dry-run', '-n', dest='dryrun', action='store_true')
+    parser.add_argument('monitor', nargs='+', action=MonitorAction, choices=VIDEO_OUTPUTS.keys())
+    return parser.parse_args(args)
+
+
+def action(mode, monitors, dryrun):
+    # cmd_template = "xrandr --output {p} {{primary}} --output {s} {{secondary}} --right-of {p} --output {t} {{tv}} --right-of {s}".format(p=VIDEO_OUTPUTS['primary'],
+    #         s=VIDEO_OUTPUTS['secondary'], t=VIDEO_OUTPUTS['tv'])
+
+    outs = {key: {'enable': False, 'rightof': None} for key in VIDEO_OUTPUTS.keys()}
+    for prev_m , m in zip([None] + monitors[:-1], monitors):
+        outs[m]['enable'] = True
+        if prev_m:
+            outs[m]['rightof'] = prev_m
+
+    cmd = ['xrandr']
+    for key, out in outs.items():
+        cmd.extend('--output {}'.format(VIDEO_OUTPUTS[key]).split())
+        if out['enable']:
+            enable = '--auto'
+        else:
+            enable = '--off'
+        cmd.append(enable)
+        if out['rightof']:
+            cmd.extend('--right-of {}'.format(VIDEO_OUTPUTS[out['rightof']]).split())
+
+    print(' '.join(cmd))
+    if not dryrun:
+        check_call(cmd)
+
+
+if __name__ == '__main__':
+    args = parse_args(sys.argv[1:])
+    action(args.mode, args.monitor, args.dryrun)
