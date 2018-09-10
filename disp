@@ -2,7 +2,6 @@
 
 import sys
 import argparse
-import shlex
 from subprocess import check_call
 
 VIDEO_OUTPUTS = {'primary': 'DVI-D-0', 'secondary': 'DVI-D-1', 'tv': 'HDMI-0'}
@@ -27,11 +26,8 @@ def parse_args(args):
 
 
 def action(mode, monitors, dryrun):
-    # cmd_template = "xrandr --output {p} {{primary}} --output {s} {{secondary}} --right-of {p} --output {t} {{tv}} --right-of {s}".format(p=VIDEO_OUTPUTS['primary'],
-    #         s=VIDEO_OUTPUTS['secondary'], t=VIDEO_OUTPUTS['tv'])
-
     outs = {key: {'enable': False, 'rightof': None} for key in VIDEO_OUTPUTS.keys()}
-    for prev_m , m in zip([None] + monitors[:-1], monitors):
+    for prev_m, m in zip([None] + monitors[:-1], monitors):
         outs[m]['enable'] = True
         if prev_m:
             outs[m]['rightof'] = prev_m
