@@ -55,9 +55,7 @@ let g:deoplete#sources#jedi#show_docstring = 1
 Plug 'davidhalter/jedi-vim'
 let g:jedi#completions_enabled = 0
 autocmd BufWinEnter '__doc__' setlocal bufhidden=delete
-" change this to neovim venv where 'neovim' pip package installed
-let g:python3_host_prog='/home/ygarti/.local/share/virtualenvs/nvim-nqqzs7yT/bin/python3'
-let g:python_host_prog='/home/ygarti/.local/share/virtualenvs/neovim2--DUTlD8e/bin/python'
+
 " color themes
 Plug 'morhetz/gruvbox'
 Plug 'dracula/vim'
