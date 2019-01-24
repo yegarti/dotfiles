@@ -12,7 +12,8 @@ endif
 set showcmd
 set noswapfile
 set nowrap
-set tabstop=4 shiftwidth=4
+set tabstop=4
+set shiftwidth=4
 set ignorecase
 set smartcase
 set list
@@ -52,20 +53,22 @@ endif
 let g:deoplete#enable_at_startup = 1
 Plug 'zchee/deoplete-jedi'
 let g:deoplete#sources#jedi#show_docstring = 1
+let g:python_host_prog = '/usr/bin/python'
+let g:python3_host_prog = '/usr/bin/python3'
 Plug 'davidhalter/jedi-vim'
 let g:jedi#completions_enabled = 0
 autocmd BufWinEnter '__doc__' setlocal bufhidden=delete
-
 " color themes
 Plug 'morhetz/gruvbox'
 Plug 'dracula/vim'
+Plug 'easymotion/vim-easymotion'
 
 call plug#end()
 
 "** My Settings **"
 let mapleader=','
 nnoremap <Leader>w :w<CR>
-nnoremap <Leader>b :buffers<CR>:buffer<Space>
+nnoremap <leader>b :CtrlPBuffer<CR>
 nnoremap gw <C-W>
 nnoremap : ;
 nnoremap ; :
@@ -78,6 +81,23 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" nvim terminal
+if has('nvim')
+	tnoremap <Esc> <C-\><C-n>
+	tnoremap <A-h> <C-\><C-N><C-w>h
+	tnoremap <A-j> <C-\><C-N><C-w>j
+	tnoremap <A-k> <C-\><C-N><C-w>k
+	tnoremap <A-l> <C-\><C-N><C-w>l
+	inoremap <A-h> <C-\><C-N><C-w>h
+	inoremap <A-j> <C-\><C-N><C-w>j
+	inoremap <A-k> <C-\><C-N><C-w>k
+	inoremap <A-l> <C-\><C-N><C-w>l
+	nnoremap <A-h> <C-w>h
+	nnoremap <A-j> <C-w>j
+	nnoremap <A-k> <C-w>k
+	nnoremap <A-l> <C-w>l
+endif
 
 " graphics
 colorscheme gruvbox
@@ -93,5 +113,3 @@ if !has('nvim') && has('persistent_undo')
 	let &undodir = myUndoDir
 endif
 set undofile
-colorscheme gruvbox
-set background=dark
