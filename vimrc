@@ -21,6 +21,7 @@ set listchars=tab:•\ ,trail:•,extends:»,precedes:«
 set relativenumber
 set number
 set showmatch
+set foldmethod=indent
 
 "** Plugins **"
 
@@ -32,6 +33,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'w0rp/ale'
 let g:ale_type_map = {'flake8': {'ES': 'WS'}}
+let g:ale_cpp_gcc_options="@/home/ygarti/tm2_QualityLiveTests_backup/gcc.config"
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
@@ -40,9 +42,9 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'
-Plug 'ervandew/supertab'
-let g:SuperTabCrMapping = 1
-let g:SuperTabDefaultCompletionType = "<c-n>"
+"Plug 'ervandew/supertab'
+"let g:SuperTabCrMapping = 1
+"let g:SuperTabDefaultCompletionType = "<c-n>"
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -60,14 +62,17 @@ let g:jedi#completions_enabled = 0
 autocmd BufWinEnter '__doc__' setlocal bufhidden=delete
 " color themes
 Plug 'morhetz/gruvbox'
-Plug 'dracula/vim'
-Plug 'easymotion/vim-easymotion'
+Plug 'drewtempelmeyer/palenight.vim'
 
+Plug 'easymotion/vim-easymotion'
+Plug 'Valloric/YouCompleteMe'
+let g:ycm_filetype_whitelist = {'cpp': 1, 'c': 1}
 call plug#end()
 
 "** My Settings **"
 let mapleader=','
 nnoremap <Leader>w :w<CR>
+" nnoremap <Leader>b :buffers<CR>:buffer<Space>
 nnoremap <leader>b :CtrlPBuffer<CR>
 nnoremap gw <C-W>
 nnoremap : ;
@@ -75,7 +80,8 @@ nnoremap ; :
 nnoremap <BS> <C-^>
 nnoremap <F9> :source $MYVIMRC
 nnoremap <Enter> o<ESC>k
-nnoremap <Space> :noh<CR>
+nnoremap <LeadeR><Space> :noh<CR>
+nnoremap <Space> za
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -102,6 +108,7 @@ endif
 " graphics
 colorscheme gruvbox
 set background=dark
+set termguicolors
 
 " Keep undo history across sessions by storing it in a file
 if !has('nvim') && has('persistent_undo')
