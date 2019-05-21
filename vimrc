@@ -41,6 +41,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ctrlpvim/ctrlp.vim'
+let g:ctrlp_custom_ignore = '\v\.(pyc|so)$'
 Plug 'jiangmiao/auto-pairs'
 "Plug 'ervandew/supertab'
 "let g:SuperTabCrMapping = 1
@@ -67,7 +68,9 @@ Plug 'drewtempelmeyer/palenight.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'Valloric/YouCompleteMe'
 let g:ycm_filetype_whitelist = {'cpp': 1, 'c': 1}
+Plug 'vimwiki/vimwiki'
 call plug#end()
+
 
 "** My Settings **"
 let mapleader=','
@@ -78,7 +81,7 @@ nnoremap gw <C-W>
 nnoremap : ;
 nnoremap ; :
 nnoremap <BS> <C-^>
-nnoremap <F9> :source $MYVIMRC
+nnoremap <F10> :source $MYVIMRC
 nnoremap <Enter> o<ESC>k
 nnoremap <LeadeR><Space> :noh<CR>
 nnoremap <Space> za
@@ -87,6 +90,8 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+set wildignore+=*.so,*.swp,*.zip
 
 " nvim terminal
 if has('nvim')

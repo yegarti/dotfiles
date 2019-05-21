@@ -1,0 +1,9 @@
+source ~/.vimrc
+
+set surround
+set multiple-cursors
+let mapleader=','
+nnoremap <Enter> o<Esc>k^
+nnoremap <C-P> :action GotoFile<CR>
+nnoremap <Leader>b :action RecentFiles<CR>
+nnoremap <C-W>q :action VimCloseWindow<CR>
