@@ -2,8 +2,9 @@ source ~/.vimrc
 
 set surround
 set multiple-cursors
+set commentary
 let mapleader=','
 nnoremap <Enter> o<Esc>k^
 nnoremap <C-P> :action GotoFile<CR>
 nnoremap <Leader>b :action RecentFiles<CR>
-nnoremap <C-W>q :action VimCloseWindow<CR>
+nnoremap <C-W>q :action VimWindowClose<CR>
