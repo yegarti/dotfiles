@@ -68,7 +68,7 @@ Plug 'drewtempelmeyer/palenight.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'Valloric/YouCompleteMe'
 let g:ycm_filetype_whitelist = {'cpp': 1, 'c': 1}
-Plug 'vimwiki/vimwiki'
+Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 
