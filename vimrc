@@ -22,6 +22,7 @@ set relativenumber
 set number
 set showmatch
 set foldmethod=indent
+set clipboard^=unnamedplus,unnamed
 
 "** Plugins **"
 

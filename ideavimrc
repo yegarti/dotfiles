@@ -3,6 +3,7 @@ source ~/.vimrc
 set surround
 set multiple-cursors
 set commentary
+set easymotion
 let mapleader=','
 nnoremap <Enter> o<Esc>k^
 nnoremap <C-P> :action GotoFile<CR>
