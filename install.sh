@@ -3,7 +3,7 @@
 for f in $(<config_files)
 do
 	oldfile="$HOME/.$f"
-	fdiff=$(diff -u $f $oldfile)
+	fdiff=$(diff -u $oldfile $f)
 	if [[ $fdiff ]]
 	then
 		echo "New file '$f' is different from '$oldfile'"
