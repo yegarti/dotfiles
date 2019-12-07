@@ -55,11 +55,14 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 let g:deoplete#enable_at_startup = 1
-Plug 'zchee/deoplete-jedi'
+" Uncomment once submodules are updated
+" Plug 'deoplete-plugins/deoplete-jedi'
+Plug 'https://github.com/yegarti/deoplete-jedi.git', {'branch': 'master'}
 let g:deoplete#sources#jedi#show_docstring = 1
 let g:python_host_prog = '/usr/bin/python'
 let g:python3_host_prog = '/usr/bin/python3'
 Plug 'davidhalter/jedi-vim'
+" Jedi is here for added features not provided in deoplete, no need for completions
 let g:jedi#completions_enabled = 0
 autocmd BufWinEnter '__doc__' setlocal bufhidden=delete
 " color themes
