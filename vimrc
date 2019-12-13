@@ -34,7 +34,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'w0rp/ale'
 let g:ale_type_map = {'flake8': {'ES': 'WS'}}
-let g:ale_cpp_gcc_options="@/home/ygarti/tm2_QualityLiveTests_backup/gcc.config"
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
@@ -45,9 +44,9 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_custom_ignore = '\v\.(pyc|so)$'
 Plug 'jiangmiao/auto-pairs'
-"Plug 'ervandew/supertab'
-"let g:SuperTabCrMapping = 1
-"let g:SuperTabDefaultCompletionType = "<c-n>"
+Plug 'ervandew/supertab'
+let g:SuperTabCrMapping = 1
+let g:SuperTabDefaultCompletionType = "<c-n>"
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -56,9 +55,7 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 let g:deoplete#enable_at_startup = 1
-" Uncomment once submodules are updated
-" Plug 'deoplete-plugins/deoplete-jedi'
-Plug 'https://github.com/yegarti/deoplete-jedi.git', {'branch': 'master'}
+Plug 'deoplete-plugins/deoplete-jedi'
 let g:deoplete#sources#jedi#show_docstring = 1
 let g:python_host_prog = '/usr/bin/python'
 let g:python3_host_prog = '/usr/bin/python3'
@@ -66,21 +63,19 @@ Plug 'davidhalter/jedi-vim'
 " Jedi is here for added features not provided in deoplete, no need for completions
 let g:jedi#completions_enabled = 0
 autocmd BufWinEnter '__doc__' setlocal bufhidden=delete
+Plug 'easymotion/vim-easymotion'
+Plug 'christoomey/vim-tmux-navigator'
+
+
 " color themes
 Plug 'morhetz/gruvbox'
-Plug 'drewtempelmeyer/palenight.vim'
 
-Plug 'easymotion/vim-easymotion'
-Plug 'Valloric/YouCompleteMe'
-let g:ycm_filetype_whitelist = {'cpp': 1, 'c': 1}
-Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 
 "** My Settings **"
 let mapleader=','
 nnoremap <Leader>w :w<CR>
-" nnoremap <Leader>b :buffers<CR>:buffer<Space>
 nnoremap <leader>b :CtrlPBuffer<CR>
 nnoremap gw <C-W>
 nnoremap : ;
