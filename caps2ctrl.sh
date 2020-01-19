@@ -4,4 +4,7 @@
 setxkbmap -option ctrl:nocaps
 
 # make short-pressed Ctrl behave like Escape:
-xcape -e 'Control_L=Escape'
+if ! pgrep -x "xcape" > /dev/null
+then
+	xcape -e 'Control_L=Escape'
+fi
