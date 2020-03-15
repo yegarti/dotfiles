@@ -44,9 +44,9 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_custom_ignore = '\v\.(pyc|so)$'
 Plug 'jiangmiao/auto-pairs'
-Plug 'ervandew/supertab'
-let g:SuperTabCrMapping = 1
-let g:SuperTabDefaultCompletionType = "<c-n>"
+"Plug 'ervandew/supertab'
+"let g:SuperTabCrMapping = 1
+"let g:SuperTabDefaultCompletionType = "<c-n>"
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -54,8 +54,11 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
+Plug 'Glench/Vim-Jinja2-Syntax'
 let g:deoplete#enable_at_startup = 1
-Plug 'deoplete-plugins/deoplete-jedi'
+" Uncomment once submodules are updated
+" Plug 'deoplete-plugins/deoplete-jedi'
+Plug 'https://github.com/yegarti/deoplete-jedi.git', {'branch': 'master'}
 let g:deoplete#sources#jedi#show_docstring = 1
 let g:python_host_prog = '/usr/bin/python'
 let g:python3_host_prog = '/usr/bin/python3'
@@ -63,19 +66,19 @@ Plug 'davidhalter/jedi-vim'
 " Jedi is here for added features not provided in deoplete, no need for completions
 let g:jedi#completions_enabled = 0
 autocmd BufWinEnter '__doc__' setlocal bufhidden=delete
-Plug 'easymotion/vim-easymotion'
-Plug 'christoomey/vim-tmux-navigator'
-
-
 " color themes
 Plug 'morhetz/gruvbox'
+Plug 'drewtempelmeyer/palenight.vim'
 
+Plug 'easymotion/vim-easymotion'
+Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 
 "** My Settings **"
 let mapleader=','
 nnoremap <Leader>w :w<CR>
+" nnoremap <Leader>b :buffers<CR>:buffer<Space>
 nnoremap <leader>b :CtrlPBuffer<CR>
 nnoremap gw <C-W>
 nnoremap : ;
