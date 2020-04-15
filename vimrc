@@ -70,6 +70,7 @@ Plug 'drewtempelmeyer/palenight.vim'
 
 Plug 'easymotion/vim-easymotion'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'michaeljsmith/vim-indent-object'
 call plug#end()
 
 
