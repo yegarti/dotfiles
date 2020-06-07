@@ -42,7 +42,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ctrlpvim/ctrlp.vim'
-let g:ctrlp_custom_ignore = '\v\.(pyc|so)$'
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 Plug 'jiangmiao/auto-pairs'
 "Plug 'ervandew/supertab'
 "let g:SuperTabCrMapping = 1
@@ -71,6 +71,13 @@ Plug 'drewtempelmeyer/palenight.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'michaeljsmith/vim-indent-object'
+Plug '907th/vim-auto-save'
+let g:auto_save = 1 " enable AutoSave on startup
+
+Plug 'embear/vim-localvimrc'
+let g:localvimrc_whitelist=[$HOME."/"] " Allow loading of all .lvimrc files in home directory
+
+Plug 'ycm-core/YouCompleteMe', { 'do': './install.py' }
 call plug#end()
 
 
