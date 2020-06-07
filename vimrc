@@ -47,23 +47,14 @@ Plug 'jiangmiao/auto-pairs'
 "Plug 'ervandew/supertab'
 "let g:SuperTabCrMapping = 1
 "let g:SuperTabDefaultCompletionType = "<c-n>"
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
 Plug 'Glench/Vim-Jinja2-Syntax'
-let g:deoplete#enable_at_startup = 1
-Plug 'deoplete-plugins/deoplete-jedi'
-let g:deoplete#sources#jedi#show_docstring = 1
 let g:python_host_prog = '/usr/bin/python'
 let g:python3_host_prog = '/usr/bin/python3'
 Plug 'davidhalter/jedi-vim'
 " Jedi is here for added features not provided in deoplete, no need for completions
 let g:jedi#completions_enabled = 0
 autocmd BufWinEnter '__doc__' setlocal bufhidden=delete
+
 " color themes
 Plug 'morhetz/gruvbox'
 Plug 'drewtempelmeyer/palenight.vim'
@@ -93,7 +84,7 @@ nnoremap <BS> <C-^>
 nnoremap <F10> :source $MYVIMRC
 nnoremap <Enter> o<ESC>k
 nnoremap <LeadeR><Space> :noh<CR>
-nnoremap <Space> za
+nnoremap <Space> zA
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
