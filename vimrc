@@ -34,6 +34,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'w0rp/ale'
 let g:ale_type_map = {'flake8': {'ES': 'WS'}}
+Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
@@ -50,10 +51,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'Glench/Vim-Jinja2-Syntax'
 let g:python_host_prog = '/usr/bin/python'
 let g:python3_host_prog = '/usr/bin/python3'
-Plug 'davidhalter/jedi-vim'
-" Jedi is here for added features not provided in deoplete, no need for completions
-let g:jedi#completions_enabled = 0
-autocmd BufWinEnter '__doc__' setlocal bufhidden=delete
 
 " color themes
 Plug 'morhetz/gruvbox'
@@ -85,6 +82,7 @@ nnoremap <F10> :source $MYVIMRC
 nnoremap <Enter> o<ESC>k
 nnoremap <LeadeR><Space> :noh<CR>
 nnoremap <Space> zA
+nnoremap <Leader>d :YcmCompleter GoToDefinition<CR>
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
