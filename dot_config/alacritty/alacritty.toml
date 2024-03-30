@@ -1,0 +1,24 @@
+[font.bold]
+family = "JetBrainsMono NF"
+style = "Bold"
+
+[font.bold_italic]
+family = "JetBrainsMono NF"
+style = "Bold Italic"
+
+[font.italic]
+family = "JetBrainsMono NF"
+style = "Italic"
+
+[font.normal]
+family = "JetBrainsMono NF"
+style = "Regular"
+
+[font]
+size = 13
+
+[shell]
+program = "/usr/bin/fish"
+
+[selection]
+save_to_clipboard = false
