@@ -15,7 +15,7 @@ family = "JetBrainsMono NF"
 style = "Regular"
 
 [font]
-size = 13
+size = 12
 
 [shell]
 program = "/usr/bin/fish"

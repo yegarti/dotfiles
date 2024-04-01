@@ -22,5 +22,7 @@ return {
       { '<c-\\>', '<cmd><C-U>TmuxNavigatePrevious<cr>' },
     },
   },
+
+  'lambdalisue/suda.vim',
 }
 -- vim: ts=2 sts=2 sw=2 et
