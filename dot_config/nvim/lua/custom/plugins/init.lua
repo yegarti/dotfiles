@@ -24,5 +24,22 @@ return {
   },
 
   'lambdalisue/suda.vim',
+
+  {
+    'Pocco81/auto-save.nvim',
+    enabled = true,
+    trigger_events = { 'InsertLeave' },
+    condition = function(buf)
+      local fn = vim.fn
+      local utils = require 'auto-save.utils.data'
+
+      if fn.getbufvar(buf, '&modifiable') == 1 and utils.not_in(fn.getbuvar(buf, '&filetype'), {}) then
+        return true
+      end
+      return false
+    end,
+    write_all_buffers = false,
+    debounce_delay = 135,
+  },
 }
 -- vim: ts=2 sts=2 sw=2 et
