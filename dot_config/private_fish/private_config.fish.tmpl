@@ -1,0 +1,26 @@
+fish_add_path ~/.cargo/bin
+
+{{ if eq .chezmoi.osRelease.id "ubuntu" }}
+fzf_configure_bindings
+{{ end }}
+
+set -gx EDITOR nvim
+## set -gx VIRTUAL_ENV_DISABLE_PROMPT true
+
+{{ if eq .chezmoi.osRelease.id "ubuntu" }}
+# rs_autolabs stuff
+set -gx REALSENSE_DRIVER LIBREALSENSE
+set -gx TEMP_DIR /home/yehuda/logs
+set -gx PYTHONPATH $PYTHONPATH /home/yehuda/rs_autolabs
+{{ end }}
+
+zoxide init fish | source
+status is-interactive; and register-python-argcomplete --shell fish ros2 | source
+pyenv init - | source
+status is-interactive; and pyenv virtualenv-init - | source
+
+navi widget fish | source
+
+
+# Created by `pipx` on 2023-09-20 11:19:21
+set PATH $PATH /home/yehuda/.local/bin
