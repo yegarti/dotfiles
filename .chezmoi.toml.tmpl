@@ -1,0 +1,6 @@
+{{- $choices := list "work" "home" -}}
+{{- $hostenv := promptChoice "What is the host environment you are on" $choices -}}
+
+[data]
+hostenv = {{- $hostenv | quote }}
+
