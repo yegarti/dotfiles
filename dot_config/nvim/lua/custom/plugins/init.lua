@@ -26,20 +26,37 @@ return {
   'lambdalisue/suda.vim',
 
   {
-    'Pocco81/auto-save.nvim',
+    'pocco81/auto-save.nvim',
     enabled = true,
-    trigger_events = { 'InsertLeave' },
-    condition = function(buf)
-      local fn = vim.fn
-      local utils = require 'auto-save.utils.data'
+  },
 
-      if fn.getbufvar(buf, '&modifiable') == 1 and utils.not_in(fn.getbuvar(buf, '&filetype'), {}) then
-        return true
-      end
-      return false
+  {
+    'ellisonleao/gruvbox.nvim',
+    priority = 1000,
+    config = true,
+    init = function()
+      vim.o.background = 'dark' -- or "light" for light mode
+      vim.cmd [[colorscheme gruvbox]]
     end,
-    write_all_buffers = false,
-    debounce_delay = 135,
+  },
+
+  {
+    'ggandor/leap.nvim',
+    enabled = true,
+    keys = {
+      { 's', mode = { 'n', 'x', 'o' }, desc = 'Leap Forward to' },
+      { 'S', mode = { 'n', 'x', 'o' }, desc = 'Leap Backward to' },
+      { 'gs', mode = { 'n', 'x', 'o' }, desc = 'Leap from Windows' },
+    },
+    config = function(_, opts)
+      local leap = require 'leap'
+      for k, v in pairs(opts) do
+        leap.opts[k] = v
+      end
+      leap.add_default_mappings(true)
+      -- vim.keymap.del({ 'x', 'o' }, 'x')
+      -- vim.keymap.del({ 'x', 'o' }, 'X')
+    end,
   },
 }
 -- vim: ts=2 sts=2 sw=2 et
