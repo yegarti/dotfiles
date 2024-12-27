@@ -17,8 +17,10 @@ style = "Regular"
 [font]
 size = 11
 
-[shell]
+[terminal.shell]
 program = "/usr/bin/fish"
 
 [selection]
 save_to_clipboard = false
+
+[terminal]
